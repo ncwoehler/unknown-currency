@@ -1,0 +1,24 @@
+# intellij
+/.idea
+*.iml
+
+# eclipse
+.classpath
+.settings
+.project
+.metadata
+.buildpath
+
+# vi
+*.swp
+
+# maven
+/target
+maven-eclipse.xml
+.externalToolBuilders/
+
+# temporary stuff
+*.tmp
+*.bak
+*.log
+*.pyc
