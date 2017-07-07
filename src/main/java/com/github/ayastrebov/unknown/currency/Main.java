@@ -1,6 +1,6 @@
 package com.github.ayastrebov.unknown.currency;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -16,11 +16,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newFixedThreadPool(2);
         try {
-            List<Task> tasks = new ArrayList<>();
-            for (int j = 0; j < 2; j++) {
-                tasks.add(new Task());
-            }
-            List<Future<CurrencyUnit>> futures = executorService.invokeAll(tasks);
+            List<Future<CurrencyUnit>> futures = executorService.invokeAll(Arrays.asList(new Task(), new Task()));
             for (Future<CurrencyUnit> f : futures) {
                 f.get();
             }
