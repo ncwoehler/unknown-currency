@@ -1,3 +1,5 @@
+This a test case to reproduce [UnknownCurrencyException(CurrencyCode=EUR)](https://github.com/JavaMoney/jsr354-ri/issues/158)
+
 # How to reproduce
 
     mvn clean verify
