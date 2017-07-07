@@ -2,11 +2,19 @@ This a test case to reproduce [UnknownCurrencyException(CurrencyCode=EUR)](https
 
 # How to reproduce
 
+## Build
+
     mvn clean verify
+
+It is also possible to build against different versions of moneta:
+
+    mvn clean verify -Dmoneta.artifact=moneta -Dmoneta.version=1.1
+
+## Run
+
     ./run.sh
 
-
-With some luck it will produce
+With some luck and patience it will produce a stacktrace like:
 
 
 ```
@@ -25,6 +33,4 @@ Caused by: UnknownCurrencyException [currencyCode=EUR]
     at java.lang.Thread.run(Thread.java:748)
 
 ```
-
-It may be required to launch ./run.sh several times to observe the problem
 

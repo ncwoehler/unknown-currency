@@ -9,6 +9,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
+
+        <moneta.artifactId>moneta-bp</moneta.artifactId>
+        <moneta.version>1.0</moneta.version>
     </properties>
 
     <build>
@@ -38,14 +41,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>javax.money</groupId>
-            <artifactId>money-api-bp</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.javamoney</groupId>
-            <artifactId>moneta-bp</artifactId>
-            <version>1.0</version>
+            <artifactId>${moneta.artifactId}</artifactId>
+            <version>${moneta.version}</version>
         </dependency>
     </dependencies>
 </project>

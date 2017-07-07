@@ -27,6 +27,8 @@
     </plugins>
   </build>
   <properties>
+    <moneta.version>1.0</moneta.version>
+    <moneta.artifactId>moneta-bp</moneta.artifactId>
     <maven.compiler.source>1.7</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.target>1.7</maven.compiler.target>
