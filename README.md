@@ -8,7 +8,7 @@ This a test case to reproduce [UnknownCurrencyException(CurrencyCode=EUR)](https
 
 It is also possible to build against different versions of moneta:
 
-    mvn clean verify -Dmoneta.artifact=moneta -Dmoneta.version=1.1
+    mvn clean verify -Dmoneta.artifactId=moneta -Dmoneta.version=1.1
 
 ## Run
 
