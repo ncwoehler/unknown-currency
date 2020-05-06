@@ -5,11 +5,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import javax.money.Monetary;
+import javax.money.MonetaryAmount;
 import java.util.stream.IntStream;
 
 @EnableScheduling
 @SpringBootApplication
 public class Main {
+
+    static {
+        Monetary.getCurrency("EUR");
+    }
 
     public static void main(String[] args) throws Exception {
         if (args.length == 1 && args[0].equalsIgnoreCase("standalone")) {
