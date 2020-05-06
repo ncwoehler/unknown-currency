@@ -1,10 +1,11 @@
-This a test case to reproduce [UnknownCurrencyException(CurrencyCode=EUR) with Java 11](https://github.com/JavaMoney/jsr354-ri/issues/158)
+This a test case to reproduce [UnknownCurrencyException(CurrencyCode=EUR) with Java 11](https://github.com/JavaMoney/jsr354-ri/issues/331)
+
+# Prerequistes
+
+* Docker
+* Java JRE
 
 # How to reproduce
-
-## Build & Run (Spring Boot)
-
-    make run
 
 ## Build & Run (Standalone)
 
@@ -37,11 +38,14 @@ Caused by: UnknownCurrencyException [currencyCode=EUR]
 	at java.base/java.util.concurrent.ForkJoinPool.scan(Unknown Source)
 	at java.base/java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
 	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
-
 ```
+
+## Build & Run (Spring Boot)
+
+    make spring
 
 ## Change Moneta version
 
-The default version for this test is `1.3`. To change the library version add `MONETA_VERSION=1.1`. For example:
+The default version for this test is `1.4`. To change the library version add `MONETA_VERSION=1.1`. For example:
 
-    make run MONETA_VERSION=1.1
+    make standalone MONETA_VERSION=1.1
