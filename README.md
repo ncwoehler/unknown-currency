@@ -12,7 +12,6 @@ This a test case to reproduce [UnknownCurrencyException(CurrencyCode=EUR)](https
 
 With some luck and patience it will produce a stacktrace like:
 
-
 ```
 java.util.concurrent.ExecutionException: UnknownCurrencyException [currencyCode=EUR]
     at java.util.concurrent.FutureTask.report(FutureTask.java:122)
@@ -30,3 +29,8 @@ Caused by: UnknownCurrencyException [currencyCode=EUR]
 
 ```
 
+## Change Moneta version
+
+To change moneta library version add `MONETA_VERSION=1.1`. For example:
+
+    make run MONETA_VERSION=1.1

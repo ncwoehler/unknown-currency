@@ -9,11 +9,11 @@ import org.springframework.web.client.RestOperations;
 import org.zalando.jackson.datatype.money.MoneyModule;
 
 @Configuration
-public class JacksonConfig {
+public class Config {
 
 	@Bean
 	public ObjectMapper objectMapper() {
-		return new ObjectMapper().registerModule(new MoneyModule());
+		return new ObjectMapper().registerModule(new MoneyModule().withFastMoney());
 	}
 
 	@Bean

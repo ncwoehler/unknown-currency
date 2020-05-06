@@ -30,7 +30,7 @@ public class Main {
     }
 
     public static void runStandalone() throws Exception {
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
         try {
             List<Future<CurrencyUnit>> futures = executorService.invokeAll(Arrays.asList(new Task(), new Task(), new Task(), new Task(), new Task()));
             for (Future<CurrencyUnit> f : futures) {
