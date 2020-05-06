@@ -1,4 +1,10 @@
 #!/bin/sh
 
-while java -jar target/unknown-currency-1.0.0-SNAPSHOT.jar; do :; done
+i=0
+echo "Starting $i"
+while java -Xmx256m -jar unknown-currency.jar ${STANDALONE};
+do
+  i=$((i+1));
+  echo "Starting $i"
+done
 
