@@ -3,13 +3,14 @@ This a test case to reproduce [UnknownCurrencyException(CurrencyCode=EUR) with J
 # Prerequistes
 
 * Docker
-* Java JRE
+* Make
+* Java 8+ JRE
 
 # How to reproduce
 
-## Build & Run (Standalone)
+## Build & Run
 
-    make standalone
+    make run
 
 You will see a stacktrace like:
 
@@ -39,10 +40,6 @@ Caused by: UnknownCurrencyException [currencyCode=EUR]
 	at java.base/java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
 	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
 ```
-
-## Build & Run (Spring Boot)
-
-    make spring
 
 ## Change Moneta version
 
