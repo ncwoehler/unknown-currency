@@ -1,4 +1,4 @@
-This a test case to reproduce [UnknownCurrencyException(CurrencyCode=EUR)](https://github.com/JavaMoney/jsr354-ri/issues/158)
+This a test case to reproduce [UnknownCurrencyException(CurrencyCode=EUR) with Java 11](https://github.com/JavaMoney/jsr354-ri/issues/158)
 
 # How to reproduce
 
@@ -10,27 +10,38 @@ This a test case to reproduce [UnknownCurrencyException(CurrencyCode=EUR)](https
 
     make standalone
 
-With some luck and patience it will produce a stacktrace like:
+You will see a stacktrace like:
 
 ```
-java.util.concurrent.ExecutionException: UnknownCurrencyException [currencyCode=EUR]
-    at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-    at java.util.concurrent.FutureTask.get(FutureTask.java:192)
-    at com.github.ayastrebov.unknown.currency.Main.main(Main.java:25)
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48)
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87)
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51)
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52)
 Caused by: UnknownCurrencyException [currencyCode=EUR]
-    at javax.money.DefaultMonetaryCurrenciesSingletonSpi.getCurrency(DefaultMonetaryCurrenciesSingletonSpi.java:104)
-    at javax.money.Monetary.getCurrency(Monetary.java:150)
-    at com.github.ayastrebov.unknown.currency.Main$Task.call(Main.java:39)
-    at com.github.ayastrebov.unknown.currency.Main$Task.call(Main.java:35)
-    at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-    at java.lang.Thread.run(Thread.java:748)
+	at javax.money.spi.MonetaryCurrenciesSingletonSpi.getCurrency(MonetaryCurrenciesSingletonSpi.java:74)
+	at javax.money.Monetary.getCurrency(Monetary.java:384)
+	at de.nwoehler.unknown.currency.Main.lambda$runStandalone$0(Main.java:23)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfInt.accept(Unknown Source)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Unknown Source)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(Unknown Source)
+	at java.base/java.util.stream.ForEachOps$ForEachTask.compute(Unknown Source)
+	at java.base/java.util.concurrent.CountedCompleter.exec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
 
 ```
 
 ## Change Moneta version
 
-To change moneta library version add `MONETA_VERSION=1.1`. For example:
+The default version for this test is `1.3`. To change the library version add `MONETA_VERSION=1.1`. For example:
 
     make run MONETA_VERSION=1.1
