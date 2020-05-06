@@ -2,7 +2,7 @@
 
 i=0
 echo "Starting $i"
-while java -Xmx256m -cp unknown-currency-all.jar de.nwoehler.unknown.currency.Main;
+while java -Xmx256m -jar unknown-currency.jar;
 do
   i=$((i+1));
   echo "Starting $i"

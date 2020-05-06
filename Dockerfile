@@ -2,7 +2,7 @@ FROM openjdk:11-jre-slim
 
 WORKDIR /
 
-COPY build/libs/unknown-currency-all.jar /unknown-currency-all.jar
+COPY build/libs/unknown-currency.jar /unknown-currency.jar
 COPY run.sh /run.sh
 
 EXPOSE 8080/tcp
