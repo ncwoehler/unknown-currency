@@ -1,6 +1,6 @@
-MONETA_VERSION?=1.3
+MONETA_VERSION?=1.4
 
-run:
+spring:
 	./gradlew bootJar -DmonetaVersion=${MONETA_VERSION}
 	docker build . -t unknown-currency
 	docker run unknown-currency
