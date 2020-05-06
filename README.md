@@ -1,4 +1,4 @@
-This a test case to reproduce [UnknownCurrencyException(CurrencyCode=EUR) with Java 11](https://github.com/JavaMoney/jsr354-ri/issues/158)
+This a test case to reproduce [UnknownCurrencyException(CurrencyCode=EUR) with Java 11](https://github.com/JavaMoney/jsr354-ri/issues/331)
 
 # Prerequistes
 
