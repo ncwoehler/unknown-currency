@@ -1,6 +1,7 @@
 # intellij
 /.idea
 *.iml
+out/
 
 # eclipse
 .classpath
@@ -22,3 +23,7 @@ maven-eclipse.xml
 *.bak
 *.log
 *.pyc
+
+# gradle
+build/
+.gradle

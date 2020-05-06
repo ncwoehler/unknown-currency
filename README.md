@@ -2,17 +2,13 @@ This a test case to reproduce [UnknownCurrencyException(CurrencyCode=EUR)](https
 
 # How to reproduce
 
-## Build
+## Build & Run (Spring Boot)
 
-    mvn clean verify
+    make run
 
-It is also possible to build against different versions of moneta:
+## Build & Run (Standalone)
 
-    mvn clean verify -Dmoneta.artifactId=moneta -Dmoneta.version=1.1
-
-## Run
-
-    ./run.sh
+    make standalone
 
 With some luck and patience it will produce a stacktrace like:
 
