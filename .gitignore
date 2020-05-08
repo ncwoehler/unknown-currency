@@ -27,3 +27,4 @@ maven-eclipse.xml
 # gradle
 build/
 .gradle
+docker/unknown-currency*.jar

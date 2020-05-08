@@ -1,0 +1,15 @@
+FROM openjdk:8-jre-slim
+
+WORKDIR /
+
+COPY unknown-currency-all.jar /unknown-currency.jar
+COPY run-shadow.sh /run.sh
+
+EXPOSE 8080/tcp
+EXPOSE 7979/tcp
+
+RUN chmod +x /run.sh
+
+ENTRYPOINT ["/bin/bash", "-c"]
+
+CMD ["./run.sh"]
